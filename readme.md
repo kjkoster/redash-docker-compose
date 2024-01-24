@@ -18,6 +18,7 @@ See also:
   and improved the first-start experience.
 * [Redash Environment Variables Settings](https://redash.io/help/open-source/admin-guide/env-vars-settings)
 * [Redash Postgres Password Guide](https://www.restack.io/docs/redash-knowledge-redash-postgres-password-guide)
+* [Redash V8 to V10 Migration Guide](https://www.restack.io/docs/redash-knowledge-redash-v8-v10-migration-guide)
 
 ## Creating a `.env` File
 
@@ -155,5 +156,17 @@ To stop Redash:
 
 ```shell
 $ docker compose stop
+```
+
+## Upgrading from 8.x to 10.x
+
+If you originally set up for version 8.x, you can upgrade the database using the
+following commands:
+
+```shell
+$ docker compose down
+$ docker compose pull
+$ docker compose run --rm redash manage db upgrade
+$ docker compose up
 ```
 

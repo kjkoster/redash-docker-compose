@@ -5,7 +5,7 @@ services:
   # This section shows the services that would run on-prem
   #
   redash:
-    image: redash/redash:8.0.0.b32245
+    image: redash/redash:10.1.0.b50633
     depends_on:
       - postgres
       - redis
@@ -17,7 +17,7 @@ services:
     environment:
       REDASH_WEB_WORKERS: 4
   scheduler:
-    image: redash/redash:8.0.0.b32245
+    image: redash/redash:10.1.0.b50633
     depends_on:
       - postgres
       - redis
@@ -28,7 +28,7 @@ services:
       QUEUES: "celery"
       WORKERS_COUNT: 1
   scheduled_worker:
-    image: redash/redash:8.0.0.b32245
+    image: redash/redash:10.1.0.b50633
     depends_on:
       - postgres
       - redis
@@ -39,7 +39,7 @@ services:
       QUEUES: "scheduled_queries,schemas"
       WORKERS_COUNT: 1
   adhoc_worker:
-    image: redash/redash:8.0.0.b32245
+    image: redash/redash:10.1.0.b50633
     depends_on:
       - postgres
       - redis
